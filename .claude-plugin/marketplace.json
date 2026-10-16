@@ -1,0 +1,17 @@
+{
+  "name": "rooks",
+  "description": "Rooks beta and production plugins.",
+  "owner": {
+    "name": "Formsort"
+  },
+  "plugins": [
+    {
+      "name": "rooks-beta",
+      "source": "./plugins/rooks-beta"
+    },
+    {
+      "name": "rooks",
+      "source": "./plugins/rooks"
+    }
+  ]
+}

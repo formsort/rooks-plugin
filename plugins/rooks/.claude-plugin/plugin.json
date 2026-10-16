@@ -1,0 +1,10 @@
+{
+  "name": "rooks",
+  "version": "0.1.2",
+  "description": "Connect to Rooks and load its current form-building guidance.",
+  "author": {
+    "name": "Formsort"
+  },
+  "homepage": "https://rooks.ai",
+  "displayName": "Rooks"
+}

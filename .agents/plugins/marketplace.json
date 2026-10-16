@@ -1,0 +1,32 @@
+{
+  "name": "rooks",
+  "interface": {
+    "displayName": "Rooks"
+  },
+  "plugins": [
+    {
+      "name": "rooks-beta",
+      "source": {
+        "source": "local",
+        "path": "./plugins/rooks-beta"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "rooks",
+      "source": {
+        "source": "local",
+        "path": "./plugins/rooks"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

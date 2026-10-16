@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "rooks": {
+      "type": "http",
+      "url": "https://app.rooks.ai/mcp",
+      "oauth": {
+        "clientId": "connected-app-live-63946eef-d05c-4ade-a0a3-32109365f0b3",
+        "callbackUrl": "http://127.0.0.1/callback"
+      }
+    }
+  }
+}

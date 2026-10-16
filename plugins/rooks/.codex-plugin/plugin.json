@@ -1,0 +1,27 @@
+{
+  "name": "rooks",
+  "version": "0.1.2",
+  "description": "Connect to Rooks and load its current form-building guidance.",
+  "author": {
+    "name": "Formsort"
+  },
+  "homepage": "https://rooks.ai",
+  "skills": "./skills/",
+  "mcpServers": "./.codex-mcp.json",
+  "interface": {
+    "displayName": "Rooks",
+    "shortDescription": "Build forms with Rooks",
+    "longDescription": "Connect to Rooks for form-building guidance and the tools available to your account. Form editing requires a shell with access to the server-provided download and upload URLs.",
+    "developerName": "Formsort",
+    "category": "Productivity",
+    "capabilities": [
+      "Check connection",
+      "Load form-building guidance",
+      "Create forms",
+      "Edit forms"
+    ],
+    "logo": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png",
+    "defaultPrompt": "Check my Rooks connection and available tools."
+  }
+}
