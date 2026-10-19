@@ -10,7 +10,7 @@ implementation or credentials are included here.
 | `rooks`      | Production  | `https://app.rooks.ai/mcp`      |
 
 Enable only the environment you intend to use. Use beta for authenticated form
-tools. Claude Code's production OAuth client is not configured yet.
+tools.
 Form editing requires a shell and access to the server-provided download and
 upload URLs. These installation steps are for Claude Code and Codex.
 

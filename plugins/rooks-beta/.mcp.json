@@ -2,11 +2,7 @@
   "mcpServers": {
     "rooks": {
       "type": "http",
-      "url": "https://app.beta.rooks.ai/mcp",
-      "oauth": {
-        "clientId": "connected-app-test-a4a92bc2-d3ba-496f-a19b-65e4eb661966",
-        "callbackPort": 39876
-      }
+      "url": "https://app.beta.rooks.ai/mcp"
     }
   }
 }
