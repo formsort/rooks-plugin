@@ -1,6 +1,6 @@
 {
   "name": "rooks",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "Connect to Rooks and load its current form-building guidance.",
   "author": {
     "name": "Formsort"
@@ -14,6 +14,7 @@
     "longDescription": "Connect to Rooks for form-building guidance and the tools available to your account. Form editing requires a shell with access to the server-provided download and upload URLs.",
     "developerName": "Formsort",
     "websiteURL": "https://rooks.ai",
+    "supportURL": "https://github.com/formsort/rooks-plugin/issues",
     "privacyPolicyURL": "https://rooks.ai/privacy",
     "termsOfServiceURL": "https://rooks.ai/terms",
     "category": "Productivity",
