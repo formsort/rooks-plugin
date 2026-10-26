@@ -1,6 +1,6 @@
 {
   "name": "rooks",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Connect to Rooks and load its current form-building guidance.",
   "author": {
     "name": "Formsort"
