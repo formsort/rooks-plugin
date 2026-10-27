@@ -1,14 +1,15 @@
 # Rooks plugin
 
-Plugin packages for Claude Code and Codex. These files connect your agent to
-Rooks and provide a bootstrap skill. The MCP server runs separately; no server
+Plugin packages for Claude Code, Codex, GitHub Copilot CLI and VS Code. These
+files connect your agent to Rooks and provide a bootstrap skill. The MCP server runs separately; no server
 implementation or credentials are included here.
 
 The `rooks` plugin connects to the production Rooks service at
 `https://app.rooks.ai/mcp`.
 
 Form editing requires a shell and access to the server-provided download and
-upload URLs. These installation steps are for Claude Code and Codex.
+upload URLs. These installation steps are for Claude Code, Codex, Copilot CLI
+and VS Code.
 
 ## Install
 
@@ -24,6 +25,20 @@ Codex:
 ```sh
 codex plugin marketplace add https://github.com/formsort/rooks-plugin.git
 codex plugin add rooks@rooks
+```
+
+GitHub Copilot CLI:
+
+```sh
+copilot plugin marketplace add formsort/rooks-plugin
+copilot plugin install rooks@rooks
+```
+
+VS Code: add the marketplace to your user settings, then install **rooks** from
+the Agent Plugins view.
+
+```json
+"chat.plugins.marketplaces": ["formsort/rooks-plugin"]
 ```
 
 Start a fresh session and ask the agent to use Rooks and call
@@ -50,6 +65,13 @@ codex plugin marketplace upgrade rooks
 codex plugin add rooks@rooks
 ```
 
+GitHub Copilot CLI:
+
+```sh
+copilot plugin marketplace update rooks
+copilot plugin update rooks@rooks
+```
+
 Start a fresh session after updating.
 
 ## Releases
@@ -64,7 +86,7 @@ credentials, respondent data or private form content.
 
 ## File transfers
 
-The Rooks skill instructs Claude Code and Codex to upload form files and assets
+The Rooks skill instructs your agent to upload form files and assets
 directly to Amazon S3 using temporary signed URLs issued by Rooks MCP tools.
 These uploads send the files from your agent's environment to AWS storage used
 by Rooks, separately from requests to the Rooks MCP endpoint. Form editing also
