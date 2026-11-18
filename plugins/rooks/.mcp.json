@@ -2,8 +2,7 @@
   "mcpServers": {
     "rooks": {
       "type": "http",
-      "url": "https://app.rooks.ai/mcp",
-      "oauthClientId": "connected-app-live-ab886ab5-18fa-4810-a612-c1a5b3af0522"
+      "url": "https://app.rooks.ai/mcp"
     }
   }
 }

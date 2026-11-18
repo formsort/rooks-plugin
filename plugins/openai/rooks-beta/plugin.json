@@ -1,0 +1,51 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "rooks-beta",
+  "version": "0.2.3",
+  "description": "Build online forms, surveys, and intake forms on Rooks by describing them, with conditional logic, file uploads, and signatures. Get Rooks form-building guidance, and use the Rooks MCP connection to create, edit, preview, and publish forms. Rooks hosts the forms and collects the responses.",
+  "author": {
+    "name": "Formsort"
+  },
+  "homepage": "https://rooks.ai",
+  "repository": "https://github.com/formsort/rooks-plugin",
+  "license": "MIT",
+  "keywords": [
+    "form builder",
+    "ai form builder",
+    "online form",
+    "survey",
+    "questionnaire",
+    "intake form",
+    "registration form",
+    "feedback form",
+    "lead capture",
+    "conditional logic",
+    "file upload",
+    "form hosting",
+    "hipaa"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Rooks Beta",
+        "shortDescription": "Build forms with Rooks",
+        "longDescription": "Build online forms, surveys, and intake forms on Rooks by describing them, with conditional logic, file uploads, and signatures. Get Rooks form-building guidance, and use the Rooks MCP connection to create, edit, preview, and publish forms. Rooks hosts the forms and collects the responses.",
+        "developerName": "Formsort",
+        "websiteURL": "https://rooks.ai",
+        "supportURL": "https://github.com/formsort/rooks-plugin/issues",
+        "privacyPolicyURL": "https://rooks.ai/privacy",
+        "termsOfServiceURL": "https://rooks.ai/terms",
+        "category": "Productivity",
+        "capabilities": [
+          "Check connection",
+          "Load form-building guidance",
+          "Create forms",
+          "Edit forms"
+        ],
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png",
+        "defaultPrompt": "Check my Rooks connection and available tools."
+      }
+    }
+  }
+}

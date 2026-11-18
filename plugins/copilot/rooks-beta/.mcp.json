@@ -4,8 +4,7 @@
       "type": "http",
       "url": "https://app.beta.rooks.ai/mcp",
       "oauth": {
-        "clientId": "connected-app-test-ae273e1d-0cf4-410c-abb1-061ee0c181c8",
-        "callbackUrl": "http://127.0.0.1/callback"
+        "clientId": "connected-app-test-50f30c79-0aa1-4e7d-9d47-17841d1badee"
       }
     }
   }

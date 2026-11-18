@@ -1,11 +1,26 @@
 {
   "name": "rooks-beta",
-  "version": "0.1.9",
-  "description": "Connect to Rooks and load its current form-building guidance.",
+  "version": "0.2.3",
+  "description": "Build online forms, surveys, and intake forms on Rooks by describing them, with conditional logic, file uploads, and signatures. Get Rooks form-building guidance, and use the Rooks MCP connection to create, edit, preview, and publish forms. Rooks hosts the forms and collects the responses.",
   "author": {
     "name": "Formsort"
   },
   "homepage": "https://rooks.ai",
-  "displayName": "Rooks Beta",
-  "privacyPolicyUrl": "https://rooks.ai/privacy"
+  "repository": "https://github.com/formsort/rooks-plugin",
+  "license": "MIT",
+  "keywords": [
+    "form builder",
+    "ai form builder",
+    "online form",
+    "survey",
+    "questionnaire",
+    "intake form",
+    "registration form",
+    "feedback form",
+    "lead capture",
+    "conditional logic",
+    "file upload",
+    "form hosting",
+    "hipaa"
+  ]
 }

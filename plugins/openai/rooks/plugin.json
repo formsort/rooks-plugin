@@ -1,0 +1,104 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "rooks",
+  "version": "0.2.3",
+  "description": "Build online forms, surveys, and intake forms on Rooks by describing them, with conditional logic, file uploads, and signatures. Get Rooks form-building guidance, and use the Rooks MCP connection to create, edit, preview, and publish forms. Rooks hosts the forms and collects the responses.",
+  "author": {
+    "name": "Formsort"
+  },
+  "homepage": "https://rooks.ai",
+  "repository": "https://github.com/formsort/rooks-plugin",
+  "license": "MIT",
+  "keywords": [
+    "form builder",
+    "ai form builder",
+    "online form",
+    "survey",
+    "questionnaire",
+    "intake form",
+    "registration form",
+    "feedback form",
+    "lead capture",
+    "conditional logic",
+    "file upload",
+    "form hosting",
+    "hipaa"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Rooks",
+        "shortDescription": "Build forms with Rooks",
+        "longDescription": "Build online forms, surveys, and intake forms on Rooks by describing them, with conditional logic, file uploads, and signatures. Get Rooks form-building guidance, and use the Rooks MCP connection to create, edit, preview, and publish forms. Rooks hosts the forms and collects the responses.",
+        "developerName": "Formsort",
+        "websiteURL": "https://rooks.ai",
+        "supportURL": "https://github.com/formsort/rooks-plugin/issues",
+        "privacyPolicyURL": "https://rooks.ai/privacy",
+        "termsOfServiceURL": "https://rooks.ai/terms",
+        "category": "Productivity",
+        "capabilities": [
+          "Check connection",
+          "Load form-building guidance",
+          "Create forms",
+          "Edit forms"
+        ],
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png",
+        "defaultPrompt": "Check my Rooks connection and available tools."
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Checks that the plugin connects to Rooks and shows the workspaces that the reviewer account can use. Read-only.",
+              "prompt": "Check my Rooks connection and list the Rooks workspaces I can use.",
+              "tools_triggered": "check_connection, list_workspaces",
+              "expected_behavior": "check_connection reports that Rooks MCP is reachable and gives the check time. list_workspaces returns one workspace, my workspace. The answer shows these results. No data changes."
+            },
+            {
+              "description": "Loads the Rooks form-building guidance from the server and answers a question from it. Read-only.",
+              "prompt": "Use the Rooks form-building guidance to explain the difference between saving a Rooks form draft and publishing it.",
+              "tools_triggered": "read_skill",
+              "expected_behavior": "The agent loads skill://rooks-forms/SKILL.md, with read_skill or as an MCP resource if the host reads resources. The answer says that commit_form saves a draft version and doesn't publish it, and that publish_form makes a saved version live for respondents. It also says that the agent publishes only when the user asks. No data changes."
+            },
+            {
+              "description": "Creates an empty draft form. Cases 3, 4 and 5 are one sequence: run them in order, in the same conversation in Codex. Create a new form for each run. Use its returned label in cases 4 and 5.",
+              "prompt": "Create an empty Rooks form named Review Workshop in my workspace. Don't publish it.",
+              "tools_triggered": "list_workspaces, create_form",
+              "expected_behavior": "create_form creates a form with the name Review Workshop and returns its form label, such as review-workshop-x7k2. The answer gives this label. The form is empty and isn't published: publish_form isn't called. No other form changes."
+            },
+            {
+              "description": "Opens the form from case 3 for editing and downloads its files. Run it after case 3, in the same conversation. It needs a shell that can reach the Rooks file transfer hosts, such as Codex. Nothing changes.",
+              "prompt": "Open the Rooks form Review Workshop for editing and download its files. Don't change it yet.",
+              "tools_triggered": "open_form",
+              "expected_behavior": "open_form uses the form label from case 3, not an older form with the same name. The agent runs the returned download command in the shell, and form.xml and form.css are in a local folder. No form is saved or published. Without a shell, open_form still succeeds, and the agent says that it can't download the files."
+            },
+            {
+              "description": "Adds a required question to the form from case 3 and saves it as a draft. Run it after case 4, in the same conversation. It needs the same shell as case 4.",
+              "prompt": "In the Rooks form Review Workshop, add a required short-text question called Workshop topic. Save the draft and give me the link to review it. Don't publish it.",
+              "tools_triggered": "commit_form",
+              "expected_behavior": "The agent edits form.xml, uploads the files with the shell and calls commit_form, which saves a new draft version. If commit_form returns validation errors, the agent fixes the file and calls it again. If the transfer commands expired, the agent first calls open_form again. If the host has a browser panel, the agent opens the preview there and calls approve_preview with the pairing code that the page shows. Otherwise the answer gives the preview link, and the agent calls approve_preview with the code that the reviewer sends. The preview has a required short-text question named Workshop topic. publish_form isn't called."
+            }
+          ],
+          "negative": [
+            {
+              "description": "The Rooks tools can't delete forms. The agent must say so. It must not delete the form or empty it by another route, such as removing its content and saving a draft.",
+              "prompt": "Permanently delete my Rooks form Review Workshop.",
+              "expected_behavior": "The agent says that the Rooks tools can't delete forms. It can call list_forms to find the form, but it doesn't call open_form, commit_form or publish_form. The form doesn't change."
+            },
+            {
+              "description": "The reviewer account has no access to workspace aworkspa7scjl. Rooks must deny access, and the agent must not try another account or route.",
+              "prompt": "List the Rooks forms in workspace aworkspa7scjl.",
+              "expected_behavior": "The agent says that it can't access this workspace and shows no forms. It can learn this from list_workspaces, which doesn't list the workspace, or from list_forms, which returns that the workspace was not found or isn't approved for this connection. It doesn't ask for other credentials."
+            },
+            {
+              "description": "Form responses can contain personal and health information. The Rooks tools give no access to them, so the agent can't show them.",
+              "prompt": "Show me the responses submitted to my Rooks form Review Workshop.",
+              "expected_behavior": "The agent says that the Rooks tools can't read responses. It can tell the user to view them in Rooks. No tool returns response data."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

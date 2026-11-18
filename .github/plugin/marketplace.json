@@ -1,0 +1,17 @@
+{
+  "name": "rooks",
+  "description": "Rooks beta and production plugins.",
+  "owner": {
+    "name": "Formsort"
+  },
+  "plugins": [
+    {
+      "name": "rooks-beta",
+      "source": "./plugins/copilot/rooks-beta"
+    },
+    {
+      "name": "rooks",
+      "source": "./plugins/copilot/rooks"
+    }
+  ]
+}

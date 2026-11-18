@@ -8,7 +8,7 @@
       "name": "rooks-beta",
       "source": {
         "source": "local",
-        "path": "./plugins/rooks-beta"
+        "path": "./plugins/openai/rooks-beta"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -20,7 +20,7 @@
       "name": "rooks",
       "source": {
         "source": "local",
-        "path": "./plugins/rooks"
+        "path": "./plugins/openai/rooks"
       },
       "policy": {
         "installation": "AVAILABLE",
